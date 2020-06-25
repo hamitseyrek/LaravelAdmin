@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//admin paneli yönlendirmelerini bir gurup haline getirdik. sistem otomatik "yonetim öneki ekleyecek
+Route::group(['prefix'=>"yonetim"], function(){
+    Route::get("/","YonetimController@index")->name("yonetim.index");
+
+
+
+});
