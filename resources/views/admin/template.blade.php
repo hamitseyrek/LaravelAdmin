@@ -119,7 +119,7 @@
 
     <!--Action boxes-->
     <div class="container-fluid">
-       burası içerik kısmı
+       @yield("content")
     </div>
 </div>
 
