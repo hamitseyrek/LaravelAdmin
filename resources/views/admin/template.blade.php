@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/admin/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/admin/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="/admin/css/fullcalendar.css" />
     <link rel="stylesheet" href="/admin/css/matrix-style.css" />
     <link rel="stylesheet" href="/admin/css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -58,12 +57,12 @@
 </div>
 <!--close-top-serch-->
 <!--sidebar-menu-->
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+<div id="sidebar"><a href="{{route("yonetim.index")}}" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
     <ul>
-        <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+        <li class="active"><a href="{{route("yonetim.index")}}"><i class="icon icon-home"></i> <span>Yönetim Paneli</span></a> </li>
         <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
-        <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
-        <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
+        <li> <a href="{{route("settings.index")}}"><i class="icon icon-inbox"></i> <span>Ayarlar</span></a> </li>
+        <li> <a href="{{route("kategoriler.index")}}"><i class="icon icon-inbox"></i> <span>Kategori</span></a> </li>
         <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
         <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
             <ul>
@@ -72,39 +71,7 @@
                 <li><a href="form-wizard.html">Form with Wizard</a></li>
             </ul>
         </li>
-        <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-        <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
-        <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
-            <ul>
-                <li><a href="index2.html">Dashboard2</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="invoice.html">Invoice</a></li>
-                <li><a href="chat.html">Chat option</a></li>
-            </ul>
-        </li>
-        <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
-            <ul>
-                <li><a href="error403.html">Error 403</a></li>
-                <li><a href="error404.html">Error 404</a></li>
-                <li><a href="error405.html">Error 405</a></li>
-                <li><a href="error500.html">Error 500</a></li>
-            </ul>
-        </li>
-        <li class="content"> <span>Monthly Bandwidth Transfer</span>
-            <div class="progress progress-mini progress-danger active progress-striped">
-                <div style="width: 77%;" class="bar"></div>
-            </div>
-            <span class="percent">77%</span>
-            <div class="stat">21419.94 / 14000 MB</div>
-        </li>
-        <li class="content"> <span>Disk Space Usage</span>
-            <div class="progress progress-mini active progress-striped">
-                <div style="width: 87%;" class="bar"></div>
-            </div>
-            <span class="percent">87%</span>
-            <div class="stat">604.44 / 4000 MB</div>
-        </li>
+
     </ul>
 </div>
 <!--sidebar-menu-->
@@ -132,7 +99,6 @@
 </div>
 
 <!--end-Footer-part-->
-
 <script src="/admin/js/excanvas.min.js"></script>
 <script src="/admin/js/jquery.min.js"></script>
 <script src="/admin/js/jquery.ui.custom.js"></script>
@@ -140,12 +106,10 @@
 <script src="/admin/js/jquery.flot.min.js"></script>
 <script src="/admin/js/jquery.flot.resize.min.js"></script>
 <script src="/admin/js/jquery.peity.min.js"></script>
-<script src="/admin/js/fullcalendar.min.js"></script>
 <script src="/admin/js/matrix.js"></script>
 <script src="/admin/js/matrix.dashboard.js"></script>
 <script src="/admin/js/jquery.gritter.min.js"></script>
 <script src="/admin/js/matrix.interface.js"></script>
-<script src="/admin/js/matrix.chat.js"></script>
 <script src="/admin/js/jquery.validate.js"></script>
 <script src="/admin/js/matrix.form_validation.js"></script>
 <script src="/admin/js/jquery.wizard.js"></script>
@@ -154,6 +118,8 @@
 <script src="/admin/js/matrix.popover.js"></script>
 <script src="/admin/js/jquery.dataTables.min.js"></script>
 <script src="/admin/js/matrix.tables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+@include('sweetalert::alert')
 @yield("js")
 
 <script type="text/javascript">

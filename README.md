@@ -8,3 +8,9 @@ komutunu kullanıyoruz. Bu sayede giriş çıkış kayıt ekranları ve boş bir
 **************************
 
 Matrix Admin entegrasyonu yapıldı. 
+
+
+Kullanılan paketler
+
+- laravel collective -form işlemleri için
+- laravel sweet alert - alext işlemleri için
