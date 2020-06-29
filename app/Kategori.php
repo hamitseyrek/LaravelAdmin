@@ -11,4 +11,8 @@ class Kategori extends Model
 
     // fillable demek sadece bu alanlar doldurulabilir demek
     // protected $fillable = ["baslik", "aciklama", "slug","user_id"];
+
+    public function yazilari(){
+        return $this->hasMany("App\Yazi", "user_id");
+    }
 }

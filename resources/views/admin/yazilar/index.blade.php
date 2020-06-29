@@ -1,43 +1,39 @@
 @extends('admin.template')
 
 @section('content')
-    <div style="float:right;margin: 15px 0 10px 0;"><a href="{{route("kategoriler.create")}}" class="btn btn-success">Kategori ekle</a>  </div>
+    <div style="float:right;margin: 15px 0 10px 0;"><a href="{{route("yazilar.create")}}" class="btn btn-success">Yazı ekle</a>  </div>
     <div style="clear:both;"></div>
     <div class="widget-box">
         <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Tüm Kategoriler</h5>
+            <h5>Tüm Yazılar</h5>
         </div>
         <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
                 <thead>
                 <tr>
                     <th>Başlık</th>
-                    <th>Türü</th>
-                    <th>Açıklama</th>
-                    <th>Slug</th>
+                    <th>Kategori</th>
+                    <th>İçerik</th>
+                    <th>Yazar</th>
                     <th>Düzenle</th>
                     <th>Sil</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($kategoriler as $kategori)
-                <tr class="gradeX">
-                    <td>{{$kategori->baslik}}</td>
-                    <td>
-                        @if(!empty($kategori->ust_id))
-                        Alt Kategori
-                        @else
-                    Ana Kategori
-                    @endif
-                    </td>
-                    <td>{{$kategori->aciklama}}</td>
-                    <td>{{$kategori->slug}}</td>
-                    <td class="center"><a href="{{route("kategoriler.edit",$kategori->id)}}" class="btn btn-success btn-mini">Düzenle</a></td>
-                    {!! Form::model($kategori, ["route"=>["kategoriler.destroy", $kategori->id], "method"=>"DELETE"]) !!}
-                    <td class="center"><button type="submit" value="Sil" class="btn btn-danger btn-mini">Sil</button> </td>
-                    {!! Form::close() !!}
-                </tr>
-                    @endforeach
+                @foreach($yazilar as $yazi)
+                    <tr class="gradeX">
+                        <td>{{$yazi->baslik}}</td>
+                        <td>
+                            {{$yazi->kategorisi->baslik}}
+                        </td>
+                        <td>{{$yazi->icerik}}</td>
+                        <td>{{$yazi->kullanici->name}}</td>
+                        <td class="center"><a href="{{route("yazilar.edit",$yazi->id)}}" class="btn btn-success btn-mini">Düzenle</a></td>
+                        {!! Form::model($yazi, ["route"=>["yazilar.destroy", $yazi->id], "method"=>"DELETE"]) !!}
+                        <td class="center"><button type="submit" value="Sil" class="btn btn-danger btn-mini">Sil</button> </td>
+                        {!! Form::close() !!}
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

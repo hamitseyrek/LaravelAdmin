@@ -28,6 +28,8 @@ Route::group(['prefix'=>"yonetim"], function(){
     Route::resource("settings", "SettingController");
     Route::resource("kategoriler", "KategoriController");
 
+    Route::resource("yazilar", "YaziController");
+
 
 
 });

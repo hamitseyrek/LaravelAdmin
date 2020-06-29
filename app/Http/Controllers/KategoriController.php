@@ -14,7 +14,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategoriler = Kategori::find(1)->first();
+        $kategoriler = Kategori::all();
         return view("admin.kategoriler.index", compact("kategoriler"));
     }
 
@@ -82,7 +82,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = Kategori::find($id);
+        $tumkategoriler = Kategori::all();
+        return view("admin.kategoriler.edit", compact("kategori", "tumkategoriler"));
     }
 
     /**
@@ -94,7 +96,31 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(), array(
+            "baslik"=>"required",
+            "aciklama"=>"required",
+        ));
+
+        $kategori = Kategori::find($id);
+        $kategori->baslik= request("baslik");
+        $kategori->aciklama = request("aciklama");
+        $kategori->slug=Str::slug(request("baslik","-"));
+        $kategori->ust_id=request("ust_id");
+        $kategori->save();
+
+        if($kategori){
+            alert()
+                ->success("Güncelleme Başarılı", "İşlem")
+                ->autoclose(2000);
+            return redirect()->route("kategoriler.index");
+
+        }
+        else{
+            alert()
+                ->success("Başarısız", "İşlem")
+                ->autoclose(2000);
+        }
+
     }
 
     /**
@@ -105,6 +131,14 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kategori::destroy($id);
+
+
+            alert()
+                ->success("Silme Başarılı", "İşlem")
+                ->autoclose(2000);
+            return redirect()->route("kategoriler.index");
+
+
     }
 }

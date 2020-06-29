@@ -63,7 +63,7 @@
         <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
         <li> <a href="{{route("settings.index")}}"><i class="icon icon-inbox"></i> <span>Ayarlar</span></a> </li>
         <li> <a href="{{route("kategoriler.index")}}"><i class="icon icon-inbox"></i> <span>Kategori</span></a> </li>
-        <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
+        <li> <a href="{{route("yazilar.index")}}"><i class="icon icon-inbox"></i> <span>Yazılar</span></a> </li>
         <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
             <ul>
                 <li><a href="form-common.html">Basic Form</a></li>
