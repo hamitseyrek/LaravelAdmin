@@ -60,7 +60,7 @@
 <div id="sidebar"><a href="{{route("yonetim.index")}}" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
     <ul>
         <li class="active"><a href="{{route("yonetim.index")}}"><i class="icon icon-home"></i> <span>Yönetim Paneli</span></a> </li>
-        <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
+        <li> <a href="{{route("kullanici.index")}}"><i class="icon icon-inbox"></i> <span>Kullanıcılar</span></a> </li>
         <li> <a href="{{route("settings.index")}}"><i class="icon icon-inbox"></i> <span>Ayarlar</span></a> </li>
         <li> <a href="{{route("kategoriler.index")}}"><i class="icon icon-inbox"></i> <span>Kategori</span></a> </li>
         <li> <a href="{{route("yazilar.index")}}"><i class="icon icon-inbox"></i> <span>Yazılar</span></a> </li>

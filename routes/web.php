@@ -31,5 +31,13 @@ Route::group(['prefix'=>"yonetim"], function(){
     Route::resource("yazilar", "YaziController");
 
 
+    Route::get("kullanicilar", "YonetimController@kullanicilar")->name("kullanici.index");
+    Route::get("kullaniciekle", "YonetimController@kullaniciekle")->name("kullanici.ekle");
+    Route::post("kullanicikayit", "YonetimController@kullanicikayit")->name("kullanici.kayit");
+    Route::get("kullaniciduzenle/{id}", "YonetimController@kullaniciduzenle")->name("kullanici.duzenle");
+    Route::post("kullaniciguncelle/{id}", "YonetimController@kullaniciguncelle")->name("kullanici.guncelle");
+    Route::delete("kullanicisil/{id}", "YonetimController@kullanicisil")->name("kullanici.sil");
+
+
 
 });
