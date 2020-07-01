@@ -35,6 +35,15 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label">Slider içinde göster :</label>
+                        <div class="controls">
+                            <select name="slider" class="span11">
+                                <option value="goster" selected>Göster</option>
+                                <option value="gosterme">Gösterme</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label">İçerik resmi :</label>
                         <div class="controls">
                             <input type="file" class="span11" name="resim" />

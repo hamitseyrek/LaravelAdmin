@@ -13,4 +13,9 @@ Matrix Admin entegrasyonu yapıldı.
 Kullanılan paketler
 
 - laravel collective -form işlemleri için
-- laravel sweet alert - alext işlemleri için
+- laravel sweet alert - alert işlemleri için
+
+Ara güvenlik katmanı middleware tanımı
+
+php artisan make:middleware isim
+komutu ile oluşturduktan sonra kernel.php içinde protected kısmına tanıtıyoruz

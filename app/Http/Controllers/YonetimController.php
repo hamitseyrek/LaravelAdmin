@@ -220,4 +220,9 @@ class YonetimController extends Controller
                 ->autoclose(2000);
         }
     }
+
+    public function cikis(){
+        auth()->logout();
+        return redirect("/login");
+    }
 }

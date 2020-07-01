@@ -25,13 +25,11 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
-        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">{{Auth::user()->name}}</span><b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                <li><a href="{{route("kullanici.duzenle", Auth::user()->id) }}"><i class="icon-user"></i>Profilim</a></li>
                 <li class="divider"></li>
-                <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-                <li class="divider"></li>
-                <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                <li><a href="{{route("yonetim.cikis")}}"><i class="icon-key"></i> Çıkış</a></li>
             </ul>
         </li>
         <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
@@ -64,6 +62,7 @@
         <li> <a href="{{route("settings.index")}}"><i class="icon icon-inbox"></i> <span>Ayarlar</span></a> </li>
         <li> <a href="{{route("kategoriler.index")}}"><i class="icon icon-inbox"></i> <span>Kategori</span></a> </li>
         <li> <a href="{{route("yazilar.index")}}"><i class="icon icon-inbox"></i> <span>Yazılar</span></a> </li>
+        <li> <a href="{{route("sayfalar.index")}}"><i class="icon icon-ban-circle"></i> <span>Sayfalar</span></a> </li>
         <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
             <ul>
                 <li><a href="form-common.html">Basic Form</a></li>

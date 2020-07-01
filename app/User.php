@@ -40,4 +40,9 @@ class User extends Authenticatable
     public function yazilari(){
         return $this->hasMany("App\Yazi", "user_id");
     }
+
+    //middleware için yetki yi şart koşacağız
+    public function yetki(){
+        return $this->yetki;
+    }
 }

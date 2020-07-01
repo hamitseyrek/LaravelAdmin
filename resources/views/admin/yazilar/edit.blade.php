@@ -37,7 +37,21 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <div><img border="0" src="/{{$yazi->resim}} width="150 height="150 "></div>
+                        <label class="control-label">Slider içinde göster :</label>
+                        <div class="controls">
+                            <select name="slider" class="span11">
+                                @if($yazi->slider== "goster")
+                                <option value="goster" selected>Göster</option>
+                                    <option value="gosterme">Gösterme</option>
+                                @else
+                                <option value="gosterme" selected>Gösterme</option>
+                                    <option value="goster">Göster</option>
+                                @endif
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div><img border="0" src="/{{$yazi->resim}}" width="150" height="150"></div>
                         <label class="control-label">İçerik Resmi</label>
                         <div class="controls" >
                             <input type="file" class="span11" name="resim">

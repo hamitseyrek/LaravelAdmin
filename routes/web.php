@@ -23,12 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //admin paneli yönlendirmelerini bir gurup haline getirdik. sistem otomatik "yonetim öneki ekleyecek
-Route::group(['prefix'=>"yonetim"], function(){
+Route::group(['prefix'=>"yonetim","middleware"=>"admin"], function(){
     Route::get("/","YonetimController@index")->name("yonetim.index");
     Route::resource("settings", "SettingController");
     Route::resource("kategoriler", "KategoriController");
 
     Route::resource("yazilar", "YaziController");
+    Route::resource("sayfalar", "SayfaController");
+    Route::get("cikis","YonetimController@cikis")->name("yonetim.cikis");
 
 
     Route::get("kullanicilar", "YonetimController@kullanicilar")->name("kullanici.index");

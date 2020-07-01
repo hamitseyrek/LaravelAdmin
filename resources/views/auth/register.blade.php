@@ -24,7 +24,18 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label class="control-label">Yetki :</label>
+                            <div class="controls">
+                                <select name="yetki" class="span11">
+                                    <option value="user" selected>User</option>
 
+                                    <option value="admin">
+                                        Admin
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -52,6 +63,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>

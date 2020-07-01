@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kategori;
 use App\Yazi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class YaziController extends Controller
@@ -48,8 +49,10 @@ class YaziController extends Controller
         $yazi = new Yazi();
         $yazi->baslik= request("baslik");
         $yazi->icerik = request("icerik");
-        $yazi->user_id= 1;
-        $yazi->kategori_id=request("kategori_id");
+        $yazi->user_id=Auth::user()->id;
+        $yazi->slider=request("slider");
+        $yazi->kategori_id = request("kategori_id");
+
         if(request() ->hasFile("resim")) {
             $this ->validate(request(), array("resim" => "image|mimes:png,jpg,jpeg,gif|max:2048"));
 
@@ -121,8 +124,10 @@ class YaziController extends Controller
         $yazi = Yazi::find($id);
         $yazi->baslik= request("baslik");
         $yazi->icerik = request("icerik");
-        $yazi->user_id= 1;
+        $yazi->user_id= $yazi->user_id;
         $yazi->kategori_id=request("kategori_id");
+        $yazi->slider=request("slider");
+
         if(request() ->hasFile("resim")) {
             $this ->validate(request(), array("resim" => "image|mimes:png,jpg,jpeg,gif|max:2048"));
 
