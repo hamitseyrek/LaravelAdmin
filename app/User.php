@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function yetki(){
         return $this->yetki;
     }
+
+    public function yorumlari(){
+        return $this->hasMany("App\Yorum", "user_id");
+    }
 }

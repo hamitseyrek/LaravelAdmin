@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Matrix Admin</title>
+    <title>{{$ayar->title}}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/admin/css/bootstrap.min.css" />
@@ -62,6 +62,7 @@
         <li> <a href="{{route("settings.index")}}"><i class="icon icon-inbox"></i> <span>Ayarlar</span></a> </li>
         <li> <a href="{{route("kategoriler.index")}}"><i class="icon icon-inbox"></i> <span>Kategori</span></a> </li>
         <li> <a href="{{route("yazilar.index")}}"><i class="icon icon-inbox"></i> <span>Yazılar</span></a> </li>
+        <li> <a href="{{route("yorumlar.index")}}"><i class="icon icon-inbox"></i> <span>Yorumlar</span></a> </li>
         <li> <a href="{{route("sayfalar.index")}}"><i class="icon icon-ban-circle"></i> <span>Sayfalar</span></a> </li>
         <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
             <ul>

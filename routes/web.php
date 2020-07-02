@@ -27,7 +27,9 @@ Route::group(['prefix'=>"yonetim","middleware"=>"admin"], function(){
     Route::get("/","YonetimController@index")->name("yonetim.index");
     Route::resource("settings", "SettingController");
     Route::resource("kategoriler", "KategoriController");
-
+    Route::resource("yorumlar", "YorumController");
+    Route::get("onayla({id}", "Yorumcontroller@onayla")->name("yorum.onayla");
+    Route::get("onaykaldir({id}", "Yorumcontroller@onaykaldir")->name("yorum.onaykaldir");
     Route::resource("yazilar", "YaziController");
     Route::resource("sayfalar", "SayfaController");
     Route::get("cikis","YonetimController@cikis")->name("yonetim.cikis");

@@ -19,5 +19,7 @@ class Yazi extends Model
         return $this->belongsTo("App\Kategori", "kategori_id");
     }
 
-
+    public function yorumlari(){
+        return $this->hasMany("App\Yorum", "yazi_id");
+    }
 }
