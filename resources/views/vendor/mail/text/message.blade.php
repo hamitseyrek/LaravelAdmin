@@ -2,14 +2,12 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            {{ $gidecekler['sitebaslik']}}
+            {{ config('app.name') }}
         @endcomponent
     @endslot
 
     {{-- Body --}}
-    **Gönderen:** {{$gidecekler["adsoyad"]}}<br>
-    **Email:** {{$gidecekler["email"]}}<br>
-    **Mesaj:** {{$gidecekler["mesaj"]}}<br>
+    {{ $slot }}
 
     {{-- Subcopy --}}
     @isset($subcopy)

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\iletisimformu;
+use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class YonetimController extends Controller
 {
@@ -224,5 +227,43 @@ class YonetimController extends Controller
     public function cikis(){
         auth()->logout();
         return redirect("/login");
+    }
+
+    public function iletisim(){
+        return view("admin.iletisimformu");
+    }
+
+    public function iletisimgonder(request $request){
+        $this->validate(request(), array(
+           "adsoyad"=>"required",
+           "email"=>"required",
+           "mesaj"=>"required",
+        ));
+
+        $ayar = Setting::find(1);
+        $adress = $ayar->baslik;
+        $mailadresim = $ayar->email;
+
+        $bilgiler = array(
+            "adsoyad"=>request("adsoyad"),
+            "email"=>request("email"),
+            "mesaj"=>request("mesaj"),
+            "sitebaslik"=>$adress,
+        );
+
+        $gonder = Mail::to($mailadresim)->send(new iletisimformu($bilgiler));
+
+        if($gonder){
+            alert()
+                ->success("Email gönderildi", "İşlem")
+                ->autoclose(2000);
+            return back();
+
+        }
+        else{
+            alert()
+                ->success("E-mail gönderilemedi", "İşlem")
+                ->autoclose(2000);
+        }
     }
 }

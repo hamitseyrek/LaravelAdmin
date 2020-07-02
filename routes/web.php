@@ -33,8 +33,8 @@ Route::group(['prefix'=>"yonetim","middleware"=>"admin"], function(){
     Route::resource("yazilar", "YaziController");
     Route::resource("sayfalar", "SayfaController");
     Route::get("cikis","YonetimController@cikis")->name("yonetim.cikis");
-
-
+    Route::get("iletisim", "YonetimController@iletisim")->name("iletisim");
+    Route::post("iletisim", "YonetimController@iletisimgonder")->name("iletisim.gonder");
     Route::get("kullanicilar", "YonetimController@kullanicilar")->name("kullanici.index");
     Route::get("kullaniciekle", "YonetimController@kullaniciekle")->name("kullanici.ekle");
     Route::post("kullanicikayit", "YonetimController@kullanicikayit")->name("kullanici.kayit");
