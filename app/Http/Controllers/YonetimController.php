@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\iletisimformu;
 use App\Setting;
 use App\User;
+use App\Yazi;
+use App\Yorum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -18,7 +20,9 @@ class YonetimController extends Controller
      */
     public function index()
     {
-        return view("admin.index");
+        $yazilar = Yazi::orderby("created_at","desc")->take(5)->get();
+        $yorumlar = Yorum::orderby("created_at","desc")->take(5)->get();
+        return view("admin.index", compact("yazilar", "yorumlar"));
     }
 
     /**
