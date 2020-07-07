@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link rel="stylesheet" href="{{asset('vendor/jqueryconfirm/jquery-confirm.min.css')}}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -76,5 +78,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <script src="{{asset('vendor/jqueryconfirm/jquery-confirm.min.js')}}"></script>
 </body>
 </html>

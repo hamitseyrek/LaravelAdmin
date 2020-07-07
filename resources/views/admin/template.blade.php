@@ -4,6 +4,7 @@
     <title>{{$ayar->title}}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/vendor/jqueryconfirm/jquery-confirm.min.css"/>
     <link rel="stylesheet" href="/admin/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/admin/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="/admin/css/matrix-style.css" />
@@ -119,6 +120,8 @@
 <script src="/admin/js/jquery.dataTables.min.js"></script>
 <script src="/admin/js/matrix.tables.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+<script src="https://code.jquery.com/jquery.js" ></script>
+<script src="{{asset('vendor/jqueryconfirm/jquery-confirm.min.js')}}"></script>
 @include('sweetalert::alert')
 @yield("js")
 

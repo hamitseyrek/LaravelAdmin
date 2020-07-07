@@ -49,18 +49,8 @@ class KategoriController extends Controller
         $kategori->ust_id=request("ust_id");
         $kategori->save();
 
-        if($kategori){
-            alert()
-                ->success("Başarılı", "İşlem")
-                ->autoclose(2000);
-            return back();
-
-        }
-        else{
-            alert()
-                ->success("Başarısız", "İşlem")
-                ->autoclose(2000);
-        }
+        //return Response()->json(['success'=>$kategori]);
+        return response()->json(['success'=>true]);
     }
 
     /**

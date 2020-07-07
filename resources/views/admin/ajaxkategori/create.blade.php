@@ -8,9 +8,7 @@
                     <h5>Yeni Kategori ekle</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form action="{{route('kategoriler.store')}}" method="POST" class="form-horizontal" onsubmit="return ajaxekle();" id="ajax-form">
-                        {{csrf_field()}}
-
+                    {!! Form::open(["route"=>"kategoriler.store","method"=>"POST","class"=>"form-horizontal"]) !!}
                     <div class="control-group">
                         <label class="control-label">Üst Kategori :</label>
                         <div class="controls">
@@ -39,7 +37,7 @@
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">Kategori Ekle</button>
                     </div>
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
@@ -57,34 +55,4 @@
 @section('css')
 @endsection
 @section('js')
-    <script>
-
-        function ajaxekle() {
-            let form = $("#ajax-form");
-            let form_data = $("#ajax-form").serialize(); // form içindeki tüm datalar alındı
-
-            $.ajaxSetup({
-                headers:{
-                    //form içerisinde token değerini bulup gönderir
-                    "x-csrf-token" : $('meta[name="token"]').attr('content')
-                }
-            });
-            $.ajax( // ajax veri gönderme kısmı
-                {
-                type:'POST',
-                url:'{{route('kategoriler.store')}}',
-                data: form_data,
-                   // dataType : "json",
-                success:function (){
-                    $.dialog({
-                        title: 'Başarılı!',
-                        content: 'Yeni kategori eklendi!',
-                        boxWidth: '30%',
-                        useBootstrap: false,
-                    });
-                }
-                });
-            return false; // hata varsa geri döndürsün
-        }
-    </script>
 @endsection
