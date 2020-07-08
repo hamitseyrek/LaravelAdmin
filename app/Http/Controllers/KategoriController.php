@@ -123,11 +123,7 @@ class KategoriController extends Controller
     {
         Kategori::destroy($id);
 
-
-            alert()
-                ->success("Silme Başarılı", "İşlem")
-                ->autoclose(2000);
-            return redirect()->route("kategoriler.index");
+        return Response()->json(['success'=>true]);
 
 
     }

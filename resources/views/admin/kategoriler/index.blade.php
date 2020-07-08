@@ -33,9 +33,12 @@
                     <td>{{$kategori->aciklama}}</td>
                     <td>{{$kategori->slug}}</td>
                     <td class="center"><a href="{{route("kategoriler.edit",$kategori->id)}}" class="btn btn-success btn-mini">Düzenle</a></td>
-                    {!! Form::model($kategori, ["route"=>["kategoriler.destroy", $kategori->id], "method"=>"DELETE"]) !!}
-                    <td class="center"><button type="submit" value="Sil" class="btn btn-danger btn-mini">Sil</button> </td>
-                    {!! Form::close() !!}
+
+                    <form action="{{action("KategoriController@destroy",$kategori->id)}}" method="POST" id="kategorisil">
+                        {{method_field('delete')}}
+                        {{csrf_field()}}
+                    <td class="center"><button type="submit" value="Sil" class="btn btn-danger btn-mini sil" id="silbtn" data-id="{{$kategori->id}}">Sil</button> </td>
+                    </form>
                 </tr>
                     @endforeach
                 </tbody>
@@ -63,5 +66,38 @@
 
     <script src="/admin/js/jquery.dataTables.min.js" ></script>
     <script src="/admin/js/matrix.tables.js" ></script>
+
+    <script>
+        $('.sil').on("click", function (e) {
+            //tüm verileri inputData değişkenine alıyoruz
+            let inputData = $("#kategorisil").serialize();
+            let dataId = $("#silbtn").attr("data-id");
+
+        $.ajaxSetup({
+                headers:{
+                    //form içerisinde token değerini bulup gönderir
+                    "x-csrf-token" : $('meta[name="token"]').attr('content')
+                }
+            });
+
+            // ajax kısmı
+            $.ajax({
+                url:"{{url("yonetim/kategoriler")}}"+"/"+dataId,
+                type:"POST",
+                data: inputData,
+                success:function (){
+                    $.dialog({
+                        title: 'Başarılı!',
+                        content: 'Yeni kategori silindi!',
+                        boxWidth: '30%',
+                        useBootstrap: false,
+                    });
+                    //tabloyu yenileme
+                    setInterval("window.location.reload()", 2500);
+                }
+            });
+            return false;
+        })
+    </script>
 
 @endsection

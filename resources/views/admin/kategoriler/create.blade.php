@@ -82,6 +82,8 @@
                         boxWidth: '30%',
                         useBootstrap: false,
                     });
+                    //formu resetleme boşaltma kısmı
+                    document.getElementById("ajax-form").reset();
                 }
                 });
             return false; // hata varsa geri döndürsün
